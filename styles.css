@@ -355,7 +355,7 @@ h1#logo {
   box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.4), 0px 0px 45px 0px rgba(0, 0, 0, 0.4) inset;
   position: relative;
   opacity: 1;
-  transform: scale(0.3);
+  transform: scale(0.5);
   transition: transform .35s cubic-bezier(.22, .61, .36, 1), opacity .35s ease, box-shadow .25s ease;
   animation: die-enter .4s both;
   background: url(images/scratches.png), radial-gradient(ellipse at center, #FFFFFF 0%, #E0E0E0 70%, #DCDCDC 40%, #D6D6D6 100%);
@@ -363,33 +363,33 @@ h1#logo {
   background-position: center center; }
   .die:hover,
   .die-selected:hover {
-    transform: scale(0.5) !important;
+    transform: scale(0.54) !important;
     box-shadow: 3px 6px 40px 5px rgba(0, 0, 0, 0.3), 3px 6px 60px 5px rgba(0, 0, 0, 0.3) inset;
     cursor: pointer; }
   @media (min-width: 768px) {
-    .die,
-    .die-selected {
-      transform: scale(0.5);
-      margin: 5px; }
-      .die:hover,
-      .die-selected:hover {
-        transform: scale(0.7) !important; } }
-  @media (min-width: 992px) {
     .die,
     .die-selected {
       transform: scale(0.7);
       margin: 5px; }
       .die:hover,
       .die-selected:hover {
-        transform: scale(0.9) !important; } }
-  @media (min-width: 1200px) {
+        transform: scale(0.74) !important; } }
+  @media (min-width: 992px) {
     .die,
     .die-selected {
-      transform: scale(0.9);
+      transform: scale(0.85);
       margin: 5px; }
       .die:hover,
       .die-selected:hover {
-        transform: scale(1.1) !important; } }
+        transform: scale(0.89) !important; } }
+  @media (min-width: 1200px) {
+    .die,
+    .die-selected {
+      transform: scale(0.95);
+      margin: 5px; }
+      .die:hover,
+      .die-selected:hover {
+        transform: scale(0.99) !important; } }
   .die:after,
   .die-selected:after {
     content: '';
@@ -466,6 +466,9 @@ h1#logo {
       margin: 5px; }
       .die-selected:hover {
         transform: scale(1) !important; } }
+
+.computer-die {
+  pointer-events: none; }
 
 #site-wrapper {
   position: relative;
@@ -652,8 +655,7 @@ h1#logo {
 
 @keyframes die-enter {
   from {
-    opacity: 0;
-    transform: scale(.15) rotate(-12deg); }
+    opacity: 0; }
   to {
     opacity: 1; } }
 

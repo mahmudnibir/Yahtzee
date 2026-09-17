@@ -462,7 +462,7 @@ h1#logo {
 	box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.4), 0px 0px 45px 0px rgba(0,0,0,0.4) inset;
 	position: relative;
 	opacity: 1;
-	transform: scale(.3);
+	transform: scale(.5);
 	transition: transform .35s cubic-bezier(.22, .61, .36, 1), opacity .35s ease, box-shadow .25s ease;
 	animation: die-enter .4s both;
 	background: url(images/scratches.png), radial-gradient(ellipse at center, #FFFFFF 0%, #E0E0E0 70%, #DCDCDC 40%, #D6D6D6 100%);
@@ -470,35 +470,35 @@ h1#logo {
 	background-position: center center;
 
 	&:hover {
-		transform: scale(.5) !important;
+		transform: scale(.54) !important;
 		box-shadow: 3px 6px 40px 5px rgba(0,0,0,0.3), 3px 6px 60px 5px rgba(0,0,0,0.3) inset;
 		cursor: pointer;
 	}
 
 	@include breakpoint(sm) {
-		transform: scale(.5);
-		margin: 5px;
-
-		&:hover {
-			transform: scale(.7) !important;
-		}
-	}
-
-	@include breakpoint(md) {
 		transform: scale(.7);
 		margin: 5px;
 
 		&:hover {
-			transform: scale(.9) !important;
+			transform: scale(.74) !important;
+		}
+	}
+
+	@include breakpoint(md) {
+		transform: scale(.85);
+		margin: 5px;
+
+		&:hover {
+			transform: scale(.89) !important;
 		}
 	}
 
 	@include breakpoint(lg) {
-		transform: scale(.9);
+		transform: scale(.95);
 		margin: 5px;
 
 		&:hover {
-			transform: scale(1.1) !important;
+			transform: scale(.99) !important;
 		}
 	}
 
@@ -613,6 +613,19 @@ h1#logo {
 		&:hover {
 			transform: scale(1) !important;
 		}
+	}
+}
+
+.computer-die {
+	pointer-events: none;
+}
+
+@keyframes die-enter {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
 

@@ -162,6 +162,8 @@ function playComputerTurn() {
 	updateOpponentStatus('Computer is thinking');
 	let heldDice = [];
 	let attempt = 0;
+	diceArea.innerHTML = '';
+	selectedDiceArea.innerHTML = '';
 
 	function computerRoll() {
 		let dice = heldDice.slice();
@@ -170,9 +172,13 @@ function playComputerTurn() {
 		}
 		attempt += 1;
 		updateOpponentStatus('Computer roll ' + attempt + ' of 3');
+		renderComputerDice(dice, heldDice);
 
 		if (attempt < 3) {
 			heldDice = chooseComputerHolds(dice);
+			setTimeout(function() {
+				renderComputerDice(dice, heldDice);
+			}, 320);
 			setTimeout(computerRoll, 500);
 		} else {
 			setTimeout(function() {
@@ -182,6 +188,20 @@ function playComputerTurn() {
 	}
 
 	setTimeout(computerRoll, 500);
+}
+
+function renderComputerDice(dice, heldDice) {
+	diceArea.innerHTML = '';
+	selectedDiceArea.innerHTML = '';
+	dice.forEach(function(value, index) {
+		let isHeld = heldDice.indexOf(value) > -1;
+		let die = document.createElement('div');
+		die.className = isHeld ? 'die-selected computer-die' : 'die computer-die';
+		die.setAttribute('die-value', value);
+		die.setAttribute('die-index', index);
+		die.setAttribute('aria-hidden', 'true');
+		(isHeld ? selectedDiceArea : diceArea).appendChild(die);
+	});
 }
 
 function chooseComputerHolds(dice) {
@@ -245,6 +265,8 @@ function lockComputerScore(dice) {
 	computerCategories.push(category);
 	computerScore += scores[category];
 	opponentScoreElement.innerHTML = computerScore;
+	diceArea.innerHTML = '';
+	selectedDiceArea.innerHTML = '';
 	isComputerTurn = false;
 	if (roundNumber === 14) {
 		countFinalScore();
